@@ -17,7 +17,7 @@ import {
   Ruler,
   ShieldCheck,
 } from 'lucide-react'
-import { cities, contact, featuredProjects, sampleReviews, services } from '../data'
+import { contact, featuredProjects, sampleReviews, services } from '../data'
 import { ContactButton } from '../components/ContactModal'
 import {
   ProjectGallery,
@@ -88,6 +88,44 @@ function HeroSlidesNav({ index, onSelect, playing, cycle, onToggle, canPlay }) {
           {playing ? <Pause size={13} /> : <Play size={13} />}
         </button>
       ) : null}
+    </div>
+  )
+}
+
+// Stylised coverage "radar": Lee County cities above, Collier County below.
+const COVERAGE_PINS = [
+  { name: 'Cape Coral', r: 47, angle: -146, side: 'right' },
+  { name: 'Fort Myers', r: 38, angle: -44, side: 'left' },
+  { name: 'Lehigh Acres', r: 47, angle: -14, side: 'left' },
+  { name: 'Estero', r: 27, angle: -166, side: 'right' },
+  { name: 'Bonita Springs', r: 27, angle: 20, side: 'right' },
+  { name: 'Naples', r: 38, angle: 148, side: 'right' },
+  { name: 'Marco Island', r: 47, angle: 128, side: 'right' },
+]
+
+function CoverageRadar() {
+  return (
+    <div className="coverage-radar" data-reveal aria-hidden="true">
+      <span className="coverage-radar__ring coverage-radar__ring--outer" />
+      <span className="coverage-radar__ring coverage-radar__ring--middle" />
+      <span className="coverage-radar__ring coverage-radar__ring--inner" />
+      <span className="coverage-radar__sweep" />
+      {COVERAGE_PINS.map((pin, i) => {
+        const rad = (pin.angle * Math.PI) / 180
+        return (
+          <span
+            key={pin.name}
+            className={`coverage-radar__pin coverage-radar__pin--${pin.side}`}
+            style={{ left: `${50 + pin.r * Math.cos(rad)}%`, top: `${50 + pin.r * Math.sin(rad)}%`, '--pin-delay': `${i * 0.45}s` }}
+          >
+            <b>+</b>
+            <small>{pin.name}</small>
+          </span>
+        )
+      })}
+      <span className="coverage-radar__tag coverage-radar__tag--top">Lee County</span>
+      <span className="coverage-radar__tag coverage-radar__tag--bottom">Collier County</span>
+      <span className="coverage-radar__core"><strong>SWFL</strong><small>Florida</small></span>
     </div>
   )
 }
@@ -250,22 +288,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="area-band">
-        <div className="shell area-band__inner">
-          <div className="area-band__copy" data-reveal>
-            <span className="eyebrow eyebrow--light"><i />Local coverage</span>
-            <h2>Serving properties across Southwest Florida.</h2>
-            <p>Fence, gate, automation, fabrication and repair service throughout key communities in Collier and Lee counties.</p>
-            <div className="city-cloud">
-              {cities.map((city) => <span key={city}><Check size={13} />{city}</span>)}
+      <section className="coverage" aria-labelledby="coverage-title">
+        <img className="coverage__bg" src={asset('/images/swfl-aerial.webp')} alt="" loading="lazy" decoding="async" />
+        <div className="coverage__shade" />
+        <div className="shell coverage__inner">
+          <div className="coverage__copy" data-reveal>
+            <span className="coverage__eyebrow"><i />Collier & Lee / One local team</span>
+            <h2 id="coverage-title" className="coverage__title">From Naples <em>to Cape Coral.</em></h2>
+            <p>Monarca installs, builds and repairs fences, gates and access systems across Collier and Lee counties, from Marco Island and Naples to Estero, Fort Myers, Cape Coral and Lehigh Acres.</p>
+            <div className="coverage__actions">
+              <ContactButton className="button button--dark coverage__button" context="checking service at my address">Check your area <ArrowUpRight size={18} /></ContactButton>
+              <Link className="coverage__link" to="/service-area">See every city we serve <ArrowRight size={16} /></Link>
             </div>
-            <Link className="button button--gold" to="/service-area">Explore service area <ArrowUpRight size={18} /></Link>
           </div>
-          <div className="area-band__map" data-reveal>
-            <img src={asset('/images/florida-map.webp')} alt="Southwest Florida service area map" loading="lazy" />
-            <span><MapPin /> Southwest Florida</span>
-          </div>
+          <CoverageRadar />
         </div>
+        <a className="coverage__credit" href="https://commons.wikimedia.org/wiki/File:Fort_Meyers_and_Cape_Coral_Aerial_(30658938330).jpg" target="_blank" rel="noopener noreferrer">Photo: Fort Myers & Cape Coral by formulanone · CC BY-SA 2.0</a>
       </section>
 
       <section className="home-quote">
