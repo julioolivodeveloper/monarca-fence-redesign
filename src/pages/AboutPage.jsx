@@ -2,6 +2,7 @@ import { ArrowUpRight, Check, Eye, Hammer, HeartHandshake, ShieldCheck } from 'l
 import { ContactButton } from '../components/ContactModal'
 import { CheckList, PageHero, SectionHeading } from '../components/UI'
 import { asset } from '../lib/asset'
+import OurStory from '../components/OurStory'
 
 export default function AboutPage() {
   return (
@@ -12,6 +13,7 @@ export default function AboutPage() {
         body="Monarca Fence Services brings installation, fabrication, gates and access solutions together for Southwest Florida properties."
         image={asset('/images/swing-gate.webp')}
       />
+      <OurStory id="about-story" />
       <section className="section about-intro">
         <div className="shell about-intro__grid">
           <div className="about-intro__copy">

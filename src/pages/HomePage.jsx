@@ -27,6 +27,7 @@ import {
   TextLink,
 } from '../components/UI'
 import { asset } from '../lib/asset'
+import OurStory from '../components/OurStory'
 
 const HERO_SLIDES = [
   { src: '/images/hero.webp', alt: 'Custom black entrance gate at a Southwest Florida residence', label: 'Estate entrance' },
@@ -243,6 +244,8 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        <OurStory />
 
         <section className="section projects-section">
           <div className="shell">
