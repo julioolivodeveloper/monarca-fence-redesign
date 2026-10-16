@@ -2972,10 +2972,6 @@ button.contact-trigger {
   text-transform: uppercase;
 }
 
-.mobile-action-bar {
-  display: none;
-}
-
 /* Contact popup */
 .contact-modal {
   position: fixed;
@@ -3987,10 +3983,6 @@ button.contact-trigger {
 }
 
 @media (max-width: 680px) {
-  body {
-    padding-bottom: 62px;
-  }
-
   .shell {
     width: min(100% - 32px, 1280px);
   }
@@ -4548,56 +4540,9 @@ button.contact-trigger {
     gap: 3px;
   }
 
-  .mobile-action-bar {
-    position: fixed;
-    z-index: 70;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: grid;
-    height: 62px;
-    grid-template-columns: 1fr;
-    border-top: 1px solid rgba(255, 255, 255, 0.16);
-    background: rgba(14, 17, 14, 0.98);
-    color: var(--white);
-    box-shadow: 0 -10px 28px rgba(9, 12, 10, 0.18);
-  }
-
-  .mobile-action-bar button {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    border: 0;
-    background: var(--gold);
-    color: var(--ink);
-    cursor: pointer;
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: background-color 180ms ease, color 180ms ease;
-  }
-
-  .mobile-action-bar button:active {
-    background: var(--gold-bright);
-  }
-
-  .mobile-action-bar button .lucide-arrow-up-right {
-    transition: transform 180ms ease;
-  }
-
-  .mobile-action-bar button:hover .lucide-arrow-up-right {
-    transform: translate(3px, -3px);
-  }
-
-  .mobile-action-bar svg {
-    width: 16px;
-  }
-
   .chatbot {
     right: 14px;
-    bottom: 76px;
+    bottom: 14px;
   }
 
   .chatbot-launcher {
@@ -4618,10 +4563,10 @@ button.contact-trigger {
   .chatbot-panel {
     position: fixed;
     right: 8px;
-    bottom: 70px;
+    bottom: 8px;
     left: 8px;
     width: auto;
-    height: min(650px, calc(100svh - 84px));
+    height: min(650px, calc(100svh - 16px));
     border-radius: 7px;
   }
 

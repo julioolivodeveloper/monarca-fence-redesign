@@ -169,21 +169,12 @@ function Footer() {
   )
 }
 
-function MobileActionBar() {
-  return (
-    <div className="mobile-action-bar">
-      <ContactButton context="a fence, gate or automation project"><MessageCircle size={18} /> Contact Monarca <ArrowUpRight size={18} /></ContactButton>
-    </div>
-  )
-}
-
 export default function SiteShell({ children }) {
   return (
     <ContactModalProvider>
       <Header />
       <main>{children}</main>
       <Footer />
-      <MobileActionBar />
       <ChatBot />
     </ContactModalProvider>
   )
