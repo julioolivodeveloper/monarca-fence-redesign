@@ -839,6 +839,22 @@ button.contact-trigger {
   background: #f0efe8;
 }
 
+.home-intro-flow > .projects-section {
+  order: 3;
+}
+
+.home-intro-flow > .reviews-section {
+  order: 4;
+}
+
+.home-intro-flow > .process-section {
+  order: 5;
+}
+
+.home-intro-flow > .coverage {
+  order: 6;
+}
+
 .home-about-showcase__grid {
   display: grid;
   grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
@@ -4013,6 +4029,22 @@ button.contact-trigger {
 
   .home-intro-flow .services-preview {
     order: 2;
+  }
+
+  .home-intro-flow > .coverage {
+    order: 3;
+  }
+
+  .home-intro-flow > .projects-section {
+    order: 4;
+  }
+
+  .home-intro-flow > .reviews-section {
+    order: 5;
+  }
+
+  .home-intro-flow > .process-section {
+    order: 6;
   }
 
   .button {

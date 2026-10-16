@@ -243,70 +243,70 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-      </div>
 
-      <section className="section projects-section">
-        <div className="shell">
-          <div className="section-intro-row section-intro-row--light">
+        <section className="section projects-section">
+          <div className="shell">
+            <div className="section-intro-row section-intro-row--light">
+              <SectionHeading
+                eyebrow="Featured portfolio"
+                title="Three projects. Three ways to transform an entrance."
+                body="A focused look at gate, aluminum fence and sliding entrance solutions from Monarca's current portfolio."
+                light
+              />
+              <TextLink to="/gallery" light>View full gallery</TextLink>
+            </div>
+            <ProjectGallery items={featuredProjects} featured />
+          </div>
+        </section>
+
+        <section className="section reviews-section" id="reviews">
+          <div className="shell">
+            <div className="section-intro-row reviews-section__intro">
+              <SectionHeading
+                eyebrow="Client experience"
+                title="Built well. Communicated clearly."
+                body="Sample testimonials are shown for layout preview while verified Monarca customer feedback is collected."
+              />
+              <span className="reviews-section__notice">Placeholder content</span>
+            </div>
+            <ReviewCarousel items={sampleReviews} />
+          </div>
+        </section>
+
+        <section className="section process-section">
+          <div className="shell">
             <SectionHeading
-              eyebrow="Featured portfolio"
-              title="Three projects. Three ways to transform an entrance."
-              body="A focused look at gate, aluminum fence and sliding entrance solutions from Monarca's current portfolio."
-              light
+              eyebrow="A clear way forward"
+              title="From first message to finished entrance."
+              body="Start with the details you already know. Monarca can help shape the right solution from there."
+              align="center"
             />
-            <TextLink to="/gallery" light>View full gallery</TextLink>
-          </div>
-          <ProjectGallery items={featuredProjects} featured />
-        </div>
-      </section>
-
-      <section className="section reviews-section" id="reviews">
-        <div className="shell">
-          <div className="section-intro-row reviews-section__intro">
-            <SectionHeading
-              eyebrow="Client experience"
-              title="Built well. Communicated clearly."
-              body="Sample testimonials are shown for layout preview while verified Monarca customer feedback is collected."
-            />
-            <span className="reviews-section__notice">Placeholder content</span>
-          </div>
-          <ReviewCarousel items={sampleReviews} />
-        </div>
-      </section>
-
-      <section className="section process-section">
-        <div className="shell">
-          <SectionHeading
-            eyebrow="A clear way forward"
-            title="From first message to finished entrance."
-            body="Start with the details you already know. Monarca can help shape the right solution from there."
-            align="center"
-          />
-          <div className="process-grid">
-            <article data-reveal><span>01</span><MessageCircle /><h3>Tell us about it</h3><p>Share your location, project type, goals and any photos you have.</p></article>
-            <article data-reveal style={{ '--reveal-delay': '90ms' }}><span>02</span><Ruler /><h3>Review the property</h3><p>Confirm measurements, access, materials and the best configuration.</p></article>
-            <article data-reveal style={{ '--reveal-delay': '180ms' }}><span>03</span><Hammer /><h3>Build with detail</h3><p>Move from preparation and fabrication through installation and final review.</p></article>
-          </div>
-        </div>
-      </section>
-
-      <section className="coverage" aria-labelledby="coverage-title">
-        <img className="coverage__bg" src={asset('/images/swfl-aerial.webp')} alt="" loading="lazy" decoding="async" />
-        <div className="coverage__shade" />
-        <div className="shell coverage__inner">
-          <div className="coverage__copy" data-reveal>
-            <span className="coverage__eyebrow"><i />Collier & Lee / One local team</span>
-            <h2 id="coverage-title" className="coverage__title">From Naples <em>to Cape Coral.</em></h2>
-            <p>Monarca installs, builds and repairs fences, gates and access systems across Collier and Lee counties, from Marco Island and Naples to Estero, Fort Myers, Cape Coral and Lehigh Acres.</p>
-            <div className="coverage__actions">
-              <ContactButton className="button button--dark coverage__button" context="checking service at my address">Check your area <ArrowUpRight size={18} /></ContactButton>
-              <Link className="coverage__link" to="/service-area">See every city we serve <ArrowRight size={16} /></Link>
+            <div className="process-grid">
+              <article data-reveal><span>01</span><MessageCircle /><h3>Tell us about it</h3><p>Share your location, project type, goals and any photos you have.</p></article>
+              <article data-reveal style={{ '--reveal-delay': '90ms' }}><span>02</span><Ruler /><h3>Review the property</h3><p>Confirm measurements, access, materials and the best configuration.</p></article>
+              <article data-reveal style={{ '--reveal-delay': '180ms' }}><span>03</span><Hammer /><h3>Build with detail</h3><p>Move from preparation and fabrication through installation and final review.</p></article>
             </div>
           </div>
-          <CoverageRadar />
-        </div>
-        <a className="coverage__credit" href="https://commons.wikimedia.org/wiki/File:Fort_Meyers_and_Cape_Coral_Aerial_(30658938330).jpg" target="_blank" rel="noopener noreferrer">Photo: Fort Myers & Cape Coral by formulanone · CC BY-SA 2.0</a>
-      </section>
+        </section>
+
+        <section className="coverage" aria-labelledby="coverage-title">
+          <img className="coverage__bg" src={asset('/images/swfl-aerial.webp')} alt="" loading="lazy" decoding="async" />
+          <div className="coverage__shade" />
+          <div className="shell coverage__inner">
+            <div className="coverage__copy" data-reveal>
+              <span className="coverage__eyebrow"><i />Collier & Lee / One local team</span>
+              <h2 id="coverage-title" className="coverage__title">From Naples <em>to Cape Coral.</em></h2>
+              <p>Monarca installs, builds and repairs fences, gates and access systems across Collier and Lee counties, from Marco Island and Naples to Estero, Fort Myers, Cape Coral and Lehigh Acres.</p>
+              <div className="coverage__actions">
+                <ContactButton className="button button--dark coverage__button" context="checking service at my address">Check your area <ArrowUpRight size={18} /></ContactButton>
+                <Link className="coverage__link" to="/service-area">See every city we serve <ArrowRight size={16} /></Link>
+              </div>
+            </div>
+            <CoverageRadar />
+          </div>
+          <a className="coverage__credit" href="https://commons.wikimedia.org/wiki/File:Fort_Meyers_and_Cape_Coral_Aerial_(30658938330).jpg" target="_blank" rel="noopener noreferrer">Photo: Fort Myers & Cape Coral by formulanone · CC BY-SA 2.0</a>
+        </section>
+      </div>
 
       <section className="home-quote">
         <div className="home-quote__grid">
