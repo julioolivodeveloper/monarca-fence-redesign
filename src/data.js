@@ -328,15 +328,63 @@ export const projectTypes = [
 ]
 
 export const projects = [
-  { image: asset('/images/hero.webp'), title: 'Estate Entrance', category: 'Gates', place: 'Southwest Florida', featured: true },
-  { image: asset('/images/aluminum.webp'), title: 'Modern Aluminum Perimeter', category: 'Fences', place: 'Southwest Florida', featured: true },
-  { image: asset('/images/vinyl.webp'), title: 'White Privacy Fence', category: 'Fences', place: 'Southwest Florida' },
-  { image: asset('/images/black-chain-link.webp'), title: 'Black Chain Link', category: 'Fences', place: 'Southwest Florida' },
-  { image: asset('/images/sliding-gate.webp'), title: 'Contemporary Sliding Gate', category: 'Gates', place: 'Southwest Florida', featured: true },
-  { image: asset('/images/swing-gate.webp'), title: 'Decorative Swing Gate', category: 'Gates', place: 'Southwest Florida' },
-  { image: asset('/images/automation.webp'), title: 'Keypad Access', category: 'Automation', place: 'Southwest Florida' },
-  { image: asset('/images/fabrication.webp'), title: 'Custom Metal Fabrication', category: 'Specialty', place: 'Southwest Florida' },
-  { image: asset('/images/repairs.webp'), title: 'Fence Repair', category: 'Service', place: 'Southwest Florida' },
+  {
+    image: asset('/images/hero.webp'),
+    title: 'Black Arched Driveway Gate',
+    category: 'Gates',
+    description: 'A matte-black double swing gate was fitted between stucco columns, with arched scrollwork and matching side panels for one unified entrance.',
+    featured: true,
+  },
+  {
+    image: asset('/images/aluminum.webp'),
+    title: 'Black Aluminum Privacy Fence',
+    category: 'Fences',
+    description: 'Solid black privacy panels were aligned along the pool deck and secured to square posts with surface-mounted base plates.',
+    featured: true,
+  },
+  {
+    image: asset('/images/vinyl.webp'),
+    title: 'White Vinyl Privacy Fence',
+    category: 'Fences',
+    description: 'Full-height white vinyl panels were installed in a straight run with capped posts to create a clean, private backyard boundary.',
+  },
+  {
+    image: asset('/images/black-chain-link.webp'),
+    title: 'Black Chain-Link Fence',
+    category: 'Fences',
+    description: 'Black vinyl-coated chain-link mesh was installed between matching round posts, with top and bottom rails for a neat, secure line.',
+  },
+  {
+    image: asset('/images/sliding-gate.webp'),
+    title: 'Modern Double Swing Gate',
+    category: 'Gates',
+    description: 'A matte-black double swing gate with horizontal slats was hinged to masonry columns and aligned across the driveway.',
+    featured: true,
+  },
+  {
+    image: asset('/images/swing-gate.webp'),
+    title: 'Ornamental Double Swing Gate',
+    category: 'Gates',
+    description: 'A black ornamental gate with an arched top, detailed scrollwork and a center latch was mounted between brick columns.',
+  },
+  {
+    image: asset('/images/automation.webp'),
+    title: 'Keypad Access Control',
+    category: 'Automation',
+    description: 'A stainless-steel keypad with an integrated camera was mounted beside the vehicle barrier for controlled entry.',
+  },
+  {
+    image: asset('/images/fabrication.webp'),
+    title: 'Custom Metal Gate Fabrication',
+    category: 'Specialty',
+    description: 'A tubular metal gate frame with evenly spaced pickets was measured, fitted and welded in the shop before finishing.',
+  },
+  {
+    image: asset('/images/repairs.webp'),
+    title: 'Fence Panel Alignment & Repair',
+    category: 'Service',
+    description: 'A black privacy-fence panel was checked for level and alignment while its hardware and post connections were adjusted.',
+  },
 ]
 
 export const featuredProjects = projects.filter((project) => project.featured)

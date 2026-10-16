@@ -250,7 +250,7 @@ export default function HomePage() {
               <SectionHeading
                 eyebrow="Featured portfolio"
                 title="Three projects. Three ways to transform an entrance."
-                body="A focused look at gate, aluminum fence and sliding entrance solutions from Monarca's current portfolio."
+                body="A focused look at custom driveway gates and black privacy fencing from Monarca's current portfolio."
                 light
               />
               <TextLink to="/gallery" light>View full gallery</TextLink>

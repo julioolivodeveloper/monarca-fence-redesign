@@ -11,7 +11,6 @@ import {
   Grid2X2,
   Grid3X3,
   Image as ImageIcon,
-  MapPin,
   Paintbrush,
   PanelRightOpen,
   PanelsTopLeft,
@@ -139,12 +138,12 @@ export function ProjectGallery({ limit, items = projects, featured = false }) {
             data-reveal
             style={{ '--reveal-delay': `${Math.min(index, 5) * 55}ms` }}
           >
-            <img src={project.image} alt={project.title} loading={index > 1 ? 'lazy' : 'eager'} />
+            <img src={project.image} alt={project.description} loading={index > 1 ? 'lazy' : 'eager'} />
             <span className="project-tile__shade" />
             <span className="project-tile__content">
               <small>{project.category}</small>
               <strong>{project.title}</strong>
-              <em><MapPin size={13} /> {project.place}</em>
+              <span className="project-tile__description">{project.description}</span>
             </span>
             <span className="project-tile__open"><ImageIcon size={19} /></span>
           </button>
@@ -156,8 +155,8 @@ export function ProjectGallery({ limit, items = projects, featured = false }) {
           <button className="lightbox__close icon-button" onClick={() => setActiveIndex(null)} aria-label="Close image"><X /></button>
           <button className="lightbox__nav lightbox__nav--prev" onClick={() => moveLightbox(-1)} aria-label="Previous image"><ChevronLeft /></button>
           <figure>
-            <img src={activeProject.image} alt={activeProject.title} />
-            <figcaption><small>{activeProject.category}</small><strong>{activeProject.title}</strong><span>{activeProject.place}</span></figcaption>
+            <img src={activeProject.image} alt={activeProject.description} />
+            <figcaption><small>{activeProject.category}</small><strong>{activeProject.title}</strong><span>{activeProject.description}</span></figcaption>
           </figure>
           <button className="lightbox__nav lightbox__nav--next" onClick={() => moveLightbox(1)} aria-label="Next image"><ChevronRight /></button>
         </div>
