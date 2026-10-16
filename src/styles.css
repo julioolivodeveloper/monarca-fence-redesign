@@ -715,21 +715,26 @@ button.contact-trigger {
 .service-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: 24px;
 }
 
 .service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   min-width: 0;
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 3px;
+  border-radius: 4px;
   background: var(--white);
-  transition: transform 220ms ease, box-shadow 220ms ease;
+  box-shadow: 0 10px 28px rgba(28, 36, 29, 0.05);
+  transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
 }
 
 .service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 22px 46px rgba(28, 36, 29, 0.12);
+  border-color: rgba(210, 164, 56, 0.62);
+  box-shadow: 0 24px 52px rgba(28, 36, 29, 0.14);
+  transform: translateY(-7px);
 }
 
 .service-card__media {
@@ -737,6 +742,14 @@ button.contact-trigger {
   aspect-ratio: 1.45 / 1;
   overflow: hidden;
   background: #d4d6d1;
+}
+
+.service-card__media::after {
+  position: absolute;
+  inset: 38% 0 0;
+  background: linear-gradient(to bottom, transparent, rgba(8, 12, 9, 0.68));
+  content: '';
+  pointer-events: none;
 }
 
 .service-card__media img {
@@ -750,8 +763,9 @@ button.contact-trigger {
   transform: scale(1.045);
 }
 
-.service-card__media > span {
+.service-card__number {
   position: absolute;
+  z-index: 1;
   top: 14px;
   right: 14px;
   display: grid;
@@ -764,22 +778,60 @@ button.contact-trigger {
   font-size: 14px;
 }
 
+.service-card__category {
+  position: absolute;
+  z-index: 1;
+  bottom: 15px;
+  left: 17px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 11px;
+  border-left: 3px solid var(--gold-bright);
+  background: rgba(17, 20, 17, 0.88);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
 .service-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 320px;
+  padding: 24px;
+}
+
+.service-card__heading {
   display: grid;
-  min-height: 160px;
-  grid-template-columns: 28px minmax(0, 1fr) 34px;
-  gap: 15px;
-  align-items: start;
-  padding: 24px 22px 22px;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
-.service-card__body > svg {
+.service-card__icon {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 1px solid rgba(49, 86, 64, 0.18);
+  border-radius: 3px;
+  background: #edf1ec;
   color: var(--forest);
+  transition: background-color 220ms ease, color 220ms ease, transform 220ms ease;
 }
 
-.service-card__body small {
+.service-card:hover .service-card__icon {
+  background: var(--forest);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.service-card__heading small {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
   color: var(--gold);
   font-size: 10px;
   font-weight: 700;
@@ -787,47 +839,111 @@ button.contact-trigger {
 }
 
 .service-card h3 {
-  margin-bottom: 9px;
+  margin-bottom: 0;
   color: var(--ink);
+  font-size: 29px;
 }
 
-.service-card p {
+.service-card__body > p {
   margin-bottom: 0;
   color: var(--muted);
   font-size: 13px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
-.service-card__body > a {
+.service-card__features {
   display: grid;
-  width: 34px;
-  height: 34px;
-  place-items: center;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  color: var(--ink);
-  transition: background-color 180ms ease, box-shadow 180ms ease, color 180ms ease, transform 180ms ease;
+  gap: 8px;
+  margin: 18px 0 22px;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
 }
 
-.service-card__body > a:hover {
-  background: var(--forest);
-  box-shadow: 0 8px 18px rgba(32, 59, 43, 0.25);
+.service-card__features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: var(--text);
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.service-card__features svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: var(--gold);
+}
+
+.service-card__cta {
+  position: relative;
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: auto;
+  overflow: hidden;
+  border: 1px solid var(--forest-deep);
+  border-radius: 3px;
+  padding: 0 15px;
+  background: var(--forest-deep);
+  box-shadow: inset 3px 0 0 var(--gold);
   color: var(--white);
+  font-size: 11px;
+  font-weight: 750;
+  text-transform: uppercase;
+  transition: border-color 200ms ease, box-shadow 200ms ease, color 200ms ease, transform 200ms ease;
+}
+
+.service-card__cta::before {
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  content: '';
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease;
+}
+
+.service-card__cta span,
+.service-card__cta svg {
+  position: relative;
+  z-index: 1;
+}
+
+.service-card__cta svg {
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  border-radius: 2px;
+  padding: 6px;
+  background: var(--gold);
+  color: var(--ink);
+  transition: background-color 200ms ease, color 200ms ease, transform 200ms ease;
+}
+
+.service-card__cta:hover {
+  border-color: var(--gold);
+  box-shadow: 0 10px 22px rgba(32, 59, 43, 0.24);
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+
+.service-card__cta:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card__cta:hover svg {
+  background: var(--ink);
+  color: var(--gold-bright);
   transform: translate(2px, -2px);
 }
 
-.service-card__body > a svg {
-  width: 16px;
-  transition: transform 180ms ease;
-}
-
-.service-card__body > a:hover svg {
-  transform: translate(1px, -1px);
-}
-
-.service-card__body > a:active {
+.service-card__cta:active {
   box-shadow: none;
-  transform: none;
+  transform: translateY(0);
 }
 
 /* Home about showcase */
@@ -2032,8 +2148,7 @@ button.contact-trigger {
 }
 
 .service-grid--catalog .service-card__body {
-  min-height: 280px;
-  align-content: center;
+  min-height: 330px;
 }
 
 .detail-band,
@@ -3593,7 +3708,7 @@ button.contact-trigger {
   }
 
   .service-grid--catalog .service-card__body {
-    min-height: 200px;
+    min-height: 310px;
   }
 
   .home-about-showcase__grid {
@@ -4118,7 +4233,7 @@ button.contact-trigger {
   }
 
   .service-card__body {
-    min-height: 150px;
+    min-height: 0;
     padding: 21px 18px;
   }
 
@@ -4132,7 +4247,7 @@ button.contact-trigger {
   }
 
   .service-grid--catalog .service-card__body {
-    min-height: 170px;
+    min-height: 0;
   }
 
   .home-about-showcase__grid {
@@ -4593,8 +4708,7 @@ button.contact-trigger {
   }
 
   .service-card__body {
-    grid-template-columns: 24px minmax(0, 1fr) 32px;
-    gap: 10px;
+    padding: 20px 16px;
   }
 
   .project-tile,

@@ -74,20 +74,33 @@ export function PageHero({ eyebrow, title, body, image = asset('/images/hero.web
 
 export function ServiceCard({ service, index = 0 }) {
   const Icon = iconMap[service.icon] || Fence
+  const highlights = service.detail?.highlights?.slice(0, 2) || []
+
   return (
     <article className="service-card" data-reveal style={{ '--reveal-delay': `${Math.min(index, 3) * 70}ms` }}>
       <div className="service-card__media">
         <img src={service.image} alt={service.title} loading="lazy" />
-        <span>{String(index + 1).padStart(2, '0')}</span>
+        <span className="service-card__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+        <span className="service-card__category">{service.category}</span>
       </div>
       <div className="service-card__body">
-        <Icon size={24} strokeWidth={1.7} aria-hidden="true" />
-        <div>
-          <small>{service.category}</small>
-          <h3>{service.title}</h3>
-          <p>{service.short}</p>
+        <div className="service-card__heading">
+          <span className="service-card__icon"><Icon size={23} strokeWidth={1.8} aria-hidden="true" /></span>
+          <div>
+            <small>Monarca service</small>
+            <h3>{service.title}</h3>
+          </div>
         </div>
-        <Link to={`/services/${service.slug}`} aria-label={`Learn about ${service.title}`}><ArrowUpRight /></Link>
+        <p>{service.description}</p>
+        <ul className="service-card__features" aria-label={`${service.title} highlights`}>
+          {highlights.map((highlight) => (
+            <li key={highlight}><Check size={15} strokeWidth={2.4} aria-hidden="true" /><span>{highlight}</span></li>
+          ))}
+        </ul>
+        <Link className="service-card__cta" to={`/services/${service.slug}`} aria-label={`View details about ${service.title}`}>
+          <span>View service details</span>
+          <ArrowUpRight size={18} aria-hidden="true" />
+        </Link>
       </div>
     </article>
   )
