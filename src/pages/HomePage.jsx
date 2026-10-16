@@ -188,60 +188,62 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section services-preview" id="services">
-        <div className="shell">
-          <div className="section-intro-row">
-            <SectionHeading
-              eyebrow="Built around your property"
-              title="One team for the entire entrance."
-              body="From clean residential privacy lines to custom automated gates, Monarca coordinates the pieces that make your property feel complete."
-            />
-            <TextLink to="/services">Explore all services</TextLink>
-          </div>
-          <div className="service-grid service-grid--preview">
-            {services.slice(0, 6).map((service, index) => <ServiceCard key={service.slug} service={service} index={index} />)}
-          </div>
-        </div>
-      </section>
-
-      <section className="section home-about-showcase">
-        <div className="shell home-about-showcase__grid">
-          <div className="home-about-showcase__visual" data-reveal>
-            <figure className="home-about-showcase__photo home-about-showcase__photo--primary">
-              <img src={asset('/images/fabrication.webp')} alt="Monarca crafts a custom metal gate in the workshop" loading="lazy" />
-            </figure>
-            <figure className="home-about-showcase__photo home-about-showcase__photo--secondary">
-              <img src={asset('/images/aluminum.webp')} alt="Finished black fence installation beside a Southwest Florida home" loading="lazy" />
-            </figure>
-            <div className="home-about-showcase__badge">
-              <img src={asset('/images/logo.webp')} alt="Monarca Fence Services" loading="lazy" />
-              <span>Fence • Gate • Automation</span>
+      <div className="home-intro-flow">
+        <section className="section services-preview" id="services">
+          <div className="shell">
+            <div className="section-intro-row">
+              <SectionHeading
+                eyebrow="Built around your property"
+                title="One team for the entire entrance."
+                body="From clean residential privacy lines to custom automated gates, Monarca coordinates the pieces that make your property feel complete."
+              />
+              <TextLink to="/services">Explore all services</TextLink>
+            </div>
+            <div className="service-grid service-grid--preview">
+              {services.slice(0, 6).map((service, index) => <ServiceCard key={service.slug} service={service} index={index} />)}
             </div>
           </div>
+        </section>
 
-          <div className="home-about-showcase__content" data-reveal style={{ '--reveal-delay': '100ms' }}>
-            <span className="home-about-showcase__eyebrow">About Monarca</span>
-            <h2>Built for security. <em>Made with precision.</em></h2>
-            <p>Monarca Fence Services brings fence installation, custom gates, automation and fabrication together for residential and commercial properties across Southwest Florida.</p>
-            <p>From a clean aluminum perimeter or private vinyl fence to a custom entrance and dependable access system, every project starts with the property, the way it moves and the protection it needs.</p>
-
-            <div className="home-about-showcase__benefits" aria-label="Why property owners choose Monarca">
-              <div><ShieldCheck /><span>Quality materials</span></div>
-              <div><MessageCircle /><span>Free project estimates</span></div>
-              <div><Hammer /><span>Professional installation</span></div>
-              <div><Ruler /><span>Solutions shaped to the site</span></div>
+        <section className="section home-about-showcase">
+          <div className="shell home-about-showcase__grid">
+            <div className="home-about-showcase__visual" data-reveal>
+              <figure className="home-about-showcase__photo home-about-showcase__photo--primary">
+                <img src={asset('/images/fabrication.webp')} alt="Monarca crafts a custom metal gate in the workshop" loading="lazy" />
+              </figure>
+              <figure className="home-about-showcase__photo home-about-showcase__photo--secondary">
+                <img src={asset('/images/aluminum.webp')} alt="Finished black fence installation beside a Southwest Florida home" loading="lazy" />
+              </figure>
+              <div className="home-about-showcase__badge">
+                <img src={asset('/images/logo.webp')} alt="Monarca Fence Services" loading="lazy" />
+                <span>Fence • Gate • Automation</span>
+              </div>
             </div>
 
-            <div className="home-about-showcase__locations" aria-label="Primary service areas">
-              <span><MapPin />Collier County</span>
-              <span><MapPin />Lee County</span>
-              <span><MapPin />Southwest Florida</span>
-            </div>
+            <div className="home-about-showcase__content" data-reveal style={{ '--reveal-delay': '100ms' }}>
+              <span className="home-about-showcase__eyebrow">About Monarca</span>
+              <h2>Built for security. <em>Made with precision.</em></h2>
+              <p>Monarca Fence Services brings fence installation, custom gates, automation and fabrication together for residential and commercial properties across Southwest Florida.</p>
+              <p>From a clean aluminum perimeter or private vinyl fence to a custom entrance and dependable access system, every project starts with the property, the way it moves and the protection it needs.</p>
 
-            <Link className="home-about-showcase__link" to="/about">Meet Monarca <ArrowRight /></Link>
+              <div className="home-about-showcase__benefits" aria-label="Why property owners choose Monarca">
+                <div><ShieldCheck /><span>Quality materials</span></div>
+                <div><MessageCircle /><span>Free project estimates</span></div>
+                <div><Hammer /><span>Professional installation</span></div>
+                <div><Ruler /><span>Solutions shaped to the site</span></div>
+              </div>
+
+              <div className="home-about-showcase__locations" aria-label="Primary service areas">
+                <span><MapPin />Collier County</span>
+                <span><MapPin />Lee County</span>
+                <span><MapPin />Southwest Florida</span>
+              </div>
+
+              <Link className="home-about-showcase__link" to="/about">Meet Monarca <ArrowRight /></Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <section className="section projects-section">
         <div className="shell">
